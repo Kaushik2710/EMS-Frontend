@@ -1,0 +1,191 @@
+<div class="changebac">
+  <div mat-dialog-title class="fs-4 text-center">Send Mail</div>
+  <div mat-dialog-content>
+    <div class="container">
+      <div class="row">
+        <div class="row align-items-center me-1 mb-1 ms-1">
+          <form
+            [formGroup]="sendEmailForm"
+            class="border p-3 rounded-4"
+            enctype="multipart/form-data"
+          >
+            <div class="g-0"></div>
+            <div class="row mt-1">
+              <div class="col mb-2">
+                <label class="form-label">From</label>
+                <input
+                  type="email"
+                  class="form-control form-md-control-md bg-light fs-6"
+                  placeholder="from"
+                  name="from"
+                  id="from"
+                  value="neejpatel9323@gmail.com"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="row mt-1">
+              <div class="col mb-2">
+                <label class="form-label">To</label>
+                <input
+                  type="email"
+                  class="form-control form-md-control-md bg-light fs-6"
+                  placeholder="To"
+                  name="to"
+                  id="to"
+                  formControlName="to"
+                  [ngClass]="{'is-valid':(to.touched || to.dirty)&&!(to.errors?.['required'] || (to.errors?.['pattern'])),'is-invalid':((to.touched||to.dirty) && (to.errors?.['required'] || (to.errors?.['pattern'])))}"
+                />
+                @if ((to.touched || to.dirty) && to.errors?.['required']) {
+                <div class="invalid-feedback ps-1">*id is Required.</div>
+                } @if (to.errors?.['pattern']&&(to.touched || to.dirty)) {
+                <div class="invalid-feedback mb-1 ps-1">*To is Invalid.</div>
+                }
+              </div>
+            </div>
+            <div class="row" formArrayName="cc">
+              <label for="" class="form-label">Add CC</label>
+              @for(control of cc['controls'];track $index) {
+              <div class="row col-12 mt-2">
+                <div class="col-10">
+                  <input
+                    type="email"
+                    placeholder="CC"
+                    class="form-control"
+                    [formControlName]="$index"
+                  />
+                </div>
+                @if ($index!=0) {
+                <div class="col-1">
+                  <button
+                    mat-mini-fab
+                    color="primary"
+                    (click)="DeleteCc($index)"
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+                }
+                <div class="col-1">
+                  <button mat-mini-fab color="primary" (click)="AddCc()">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+              </div>
+              }
+            </div>
+            <div class="row" formArrayName="bcc">
+              <label for="" class="form-label">Add BCC</label>
+              @for(control of bcc['controls'];track $index) {
+              <div class="row col-12 mt-2">
+                <div class="col-10">
+                  <input
+                    type="email"
+                    placeholder="BCC"
+                    class="form-control"
+                    [formControlName]="$index"
+                  />
+                </div>
+                @if ($index!=0) {
+                <div class="col-1">
+                  <button
+                    mat-mini-fab
+                    color="primary"
+                    (click)="DeleteBcc($index)"
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+                }
+                <div class="col-1">
+                  <button mat-mini-fab color="primary" (click)="AddBcc()">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+              </div>
+              }
+            </div>
+            <div class="row mt-1">
+              <div class="col">
+                <label for="subject" class="form-label">Subject</label>
+                <textarea
+                  class="form-control is-valid form-md-control-md bg-light fs-6"
+                  placeholder="subject"
+                  name="subject"
+                  id="subject"
+                  formControlName="subject"
+                  [ngClass]="{'is-valid':(subject.touched || subject.dirty)&&!(subject.errors?.['required']),'is-invalid':((subject.touched||subject.dirty) && subject.errors?.['required'])}"
+                ></textarea
+                >@if ((subject.touched || subject.dirty) &&
+                subject.errors?.['required']) {
+                <div class="invalid-feedback">*subject is Required.</div>
+                }
+              </div>
+            </div>
+            <div class="row mt-1">
+              <div class="col">
+                <label for="body" class="form-label">Body</label>
+                <textarea
+                  rows="10"
+                  class="form-control is-valid form-md-control-md bg-light fs-6"
+                  placeholder="body"
+                  name="body"
+                  id="body"
+                  formControlName="body"
+                  [ngClass]="{'is-valid':(body.touched || body.dirty)&&!(body.errors?.['required']),'is-invalid':((body.touched||body.dirty) && body.errors?.['required'])}"
+                ></textarea
+                >@if ((body.touched || body.dirty) &&
+                subject.errors?.['required']) {
+                <div class="invalid-feedback">*subject is Required.</div>
+                }
+              </div>
+            </div>
+            <div class="row mt-1">
+              <div class="col mb-2">
+                <label class="form-label">File</label>
+                <input
+                  type="file"
+                  class="form-control form-md-control-md bg-light fs-6"
+                  placeholder="file"
+                  name="file"
+                  id="file"
+                  formControlName="file"
+                  multiple
+                  (change)="onFileSelected($event)"
+                />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col text-center">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="m-auto"
+                  [disabled]="sendEmailForm.invalid"
+                  (click)="sendEmail()"
+                >
+                  Send <mat-icon>send</mat-icon>
+                </button>
+              </div>
+              <div class="col text-center">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  class="m-auto"
+                  (click)="this.sendEmailForm.reset()"
+                >
+                  Reset <mat-icon>settings_backup_restore</mat-icon>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="warn" class="m-auto">
+      Close
+    </button>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+<div class="container mt-3">
+  <div class="row">
+    <h2 class="fw-bold fs-3 text-muted">Apply Leave</h2>
+    <hr />
+  </div>
+  <div class="row d-flex justify-content-center align-items-center mt-md-5">
+    <form
+      [formGroup]="applyLeaveForm"
+      novalidate
+      class="mb-md-3"
+      (ngSubmit)="applyLeave()"
+      enctype="multipart/form-data"
+    >
+      <div class="row">
+        <div class="col mb-2">
+          <label for="reason" class="form-label fw-500 fs-6">Reason</label>
+          <input
+            type="text"
+            class="form-control form-md-control-md bg-light fs-6"
+            placeholder="Reason"
+            name="reason"
+            id="reason"
+            formControlName="reason"
+            [ngClass]="{'is-valid':(reason.touched || reason.dirty)&&!(reason.errors?.['required']),'is-invalid':((reason.touched||reason.dirty) && (reason.errors?.['required']))}"
+          />
+          @if ((reason.touched || reason.dirty) && reason.errors?.['required'])
+          {
+          <div class="invalid-feedback ps-1">*Reason is Required.</div>
+          }
+        </div>
+        <div class="col mb-2">
+          <label for="leaveFromDate" class="form-label fw-500 fs-6">From</label>
+          <input
+            type="date"
+            class="form-control form-md-control-md bg-light fs-6"
+            name="leaveFromDate"
+            id="leaveFromDate"
+            formControlName="leaveFromDate"
+            [ngClass]="{'is-valid':(leaveFromDate.touched || leaveFromDate.dirty)&&!(leaveFromDate.errors?.['required']),'is-invalid':((leaveFromDate.touched||leaveFromDate.dirty) && (leaveFromDate.errors?.['required']))}"
+          />
+          @if ((leaveFromDate.touched || leaveFromDate.dirty) &&
+          leaveFromDate.errors?.['required']) {
+          <div class="invalid-feedback ps-1">*Date is Required.</div>
+          }
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col mb-2">
+          <label for="leaveToDate" class="form-label fw-500 fs-6">To</label>
+          <input
+            type="date"
+            class="form-control form-md-control-md bg-light fs-6"
+            name="leaveToDate"
+            id="leaveToDate"
+            formControlName="leaveToDate"
+            [ngClass]="{'is-valid':(leaveToDate.touched || leaveToDate.dirty)&&!(leaveToDate.errors?.['required']),'is-invalid':((leaveToDate.touched||leaveToDate.dirty) && (leaveToDate.errors?.['required']))}"
+          />
+          @if ((leaveToDate.touched || leaveToDate.dirty) &&
+          leaveToDate.errors?.['required']) {
+          <div class="invalid-feedback ps-1">*Date is Required.</div>
+          }
+        </div>
+        <div class="col mb-2">
+          <label for="description" class="form-label fw-500 fs-6"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control form-md-control-md bg-light fs-6"
+            placeholder="Description"
+            name="description"
+            id="description"
+            formControlName="description"
+            [ngClass]="{'is-valid':(description.touched || description.dirty)&&!(description.errors?.['required']),'is-invalid':((description.touched||description.dirty) && (description.errors?.['required']))}"
+          />
+          @if ((description.touched || description.dirty) &&
+          description.errors?.['required']) {
+          <div class="invalid-feedback ps-1">*Description is Required.</div>
+          }
+        </div>
+      </div>
+      <div class="row mt-1">
+        <div class="col text-center">
+          <button
+            type="submit"
+            [disabled]="applyLeaveForm.invalid"
+            class="btn btn-outline-primary mt-3"
+          >
+            Apply Leave
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

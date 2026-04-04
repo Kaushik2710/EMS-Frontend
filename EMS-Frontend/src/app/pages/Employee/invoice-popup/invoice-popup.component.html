@@ -1,0 +1,187 @@
+<div id="profile" #profile>
+  <div mat-dialog-title>
+    <div class="container pt-0">
+      <div class="row d-flex">
+        <div class="col fs-3">
+          <div>Invoice</div>
+        </div>
+        <div class="col fs-6">
+          <div class="text-end">
+            Date : {{ invoiceDate | date : "dd-MM-yyyy" }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div mat-dialog-content>
+    <div class="container">
+      <div class="row ms-2 mt-3">
+        <div class="col">
+          <div class="row text-dark">From</div>
+          <div class="row fw-bold text-dark">ArguSoft India Ltd.</div>
+          <div class="row">A 66, GIDC Sector - 25</div>
+          <div class="row">Gandhinagar - 382016</div>
+          <div class="row">Gujarat, India</div>
+          <div class="row">website : https://www.argusoft.com</div>
+          <div class="row">email : info&#64;argusoft.com</div>
+        </div>
+        <div class="col">
+          <div class="row text-dark">To</div>
+          <div class="row fw-bold text-dark">
+            {{
+              userData.data.register.fname + " " + userData.data.register.lname
+            }}
+          </div>
+          <div class="row">
+            {{
+              userData.data.register.address.city +
+                "," +
+                userData.data.register.address.country
+            }}
+          </div>
+          <div class="row">Phone : {{ userData.data.register.phone }}</div>
+          <div class="row">Email : {{ userData.data.register.email }}</div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col text-dark">
+              <span class="fw-bold">Paid On :</span>
+              {{ userData.data.paymentDate | date : "dd-MM-yyyy" }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4 ms-2">
+        <table>
+          <thead>
+            <th>#</th>
+            <th>Basic Salary</th>
+            <th>Allowance</th>
+            <th>Total</th>
+          </thead>
+          <tbody>
+            @for (item of [userData]; track $index) {
+            <tr class="mt-1">
+              <td>{{ $index + 1 }}</td>
+              <td>
+                {{
+                  item.data.amount - item.data.register.salary * 0.12
+                    | currency : "INR"
+                }}
+              </td>
+              <td>{{ item.data.register.salary * 0.12 | currency : "INR" }}</td>
+              <td>
+                {{ item.data.amount | currency : "INR" }}
+              </td>
+            </tr>
+
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <div class="row"><div class="fs-5">Payment Methods:</div></div>
+          <div class="row mt-4">
+            <div class="col-2">
+              <img
+                src="../../../../assets/visa.png"
+                alt="Visa_Card"
+                width="80px"
+              />
+            </div>
+            <div class="col-2">
+              <img
+                src="../../../../assets/mastercard.png"
+                alt="Visa_Card"
+                width="80px"
+              />
+            </div>
+            <div class="col-2">
+              <img
+                src="../../../../assets/bankpassbook.png"
+                alt="Visa_Card"
+                width="80px"
+              />
+            </div>
+            <div class="col-2">
+              <img
+                src="../../../../assets/paypal.png"
+                alt="Visa_Card"
+                width="80px"
+              />
+            </div>
+          </div>
+          <div class="row mt-3 ms-1 box ps-3 pt-2 pe-2 pb-2">
+            Dear
+            {{
+              userData.data.register.fname + " " + userData.data.register.lname
+            }},Our Company has just processed your payments.Your payment has
+            been deposited electronically in your account on
+            {{ userData.data.paymentDate | date : "dd-MM-yyyy" }}.
+          </div>
+        </div>
+        <div class="col ms-5">
+          <div class="row"><div class="fs-5">Salary Info:</div></div>
+          <div class="row mt-3">
+            <div
+              class="row pb-1 pt-1"
+              style="border: 0.1px solid rgb(244, 239, 239)"
+            >
+              <div class="col text-dark">Subtotal :</div>
+              <div class="col">
+                {{ userData.data.amount | currency : "INR" }}
+              </div>
+            </div>
+            <div
+              class="row pb-1 pt-1"
+              style="
+                border-bottom: 0.1px solid rgb(244, 239, 239);
+                border-left: 0.1px solid rgb(244, 239, 239);
+                border-right: 0.1px solid rgb(244, 239, 239);
+              "
+            >
+              <div class="col text-dark">Tax(0%) :</div>
+              <div class="col">{{ 0 | currency : "INR" }}</div>
+            </div>
+            <div
+              class="row pt-1 pb-1"
+              style="
+                border-bottom: 0.1px solid rgb(244, 239, 239);
+                border-left: 0.1px solid rgb(244, 239, 239);
+                border-right: 0.1px solid rgb(244, 239, 239);
+              "
+            >
+              <div class="col text-dark">Total :</div>
+              <div class="col">
+                {{ userData.data.amount | currency : "INR" }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col text-end">
+          <button
+            mat-raised-button
+            class="btn-color exclude"
+            (click)="downloadInvoice()"
+          >
+            <mat-icon>download</mat-icon> Download
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button
+      mat-raised-button
+      mat-dialog-close
+      color="warn"
+      class="m-auto exclude"
+    >
+      Close
+    </button>
+  </div>
+</div>

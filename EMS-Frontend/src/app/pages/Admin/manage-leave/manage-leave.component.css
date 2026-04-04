@@ -1,0 +1,41 @@
+.mat-column-name,
+.mat-column-date,
+.mat-column-doj {
+  text-wrap: nowrap;
+}
+mat-card,
+mat-card-footer,
+mat-paginator {
+  overflow: scroll;
+  background-color: #ecf0f3;
+}
+table {
+  background-color: #ecf0f3;
+}
+.mat-column-action {
+  text-align: left !important;
+}
+img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.5s;
+  object-fit: cover;
+}
+img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 5px #00fffb, 0 0 2px #0081bc;
+}
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: pre-wrap;
+  display: inline-block;
+  max-width: 12em;
+}
+.table-row {
+  transition: transform 0.2s ease;
+}
+.table-row:hover {
+  transform: scale(1.005);
+}

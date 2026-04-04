@@ -1,0 +1,63 @@
+<div class="container mt-3">
+  <div class="row">
+    <h2 class="fw-bold fs-3 text-muted">Links</h2>
+    <hr />
+  </div>
+  <div class="row">
+    <form [formGroup]="linkForm" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col mb-1">
+          <label class="form-label">Github</label>
+          <input
+            type="text"
+            class="form-control form-md-control-md bg-light fs-6 w-50"
+            placeholder="Github Link"
+            name="github"
+            id="github"
+            formControlName="github"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-1 mt-2">
+          <label class="form-label">E-mail</label>
+          <input
+            type="text"
+            class="form-control form-md-control-md bg-light fs-6 w-50"
+            placeholder="email Link"
+            name="email"
+            id="email"
+            formControlName="email"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-1 mt-2">
+          <label class="form-label">Linkedin</label>
+          <input
+            type="text"
+            class="form-control form-md-control-md bg-light fs-6 w-50"
+            placeholder="Linkedin Link"
+            name="linkedin"
+            id="linkedin"
+            formControlName="linkedin"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mt-3">
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="m-auto"
+            [disabled]="this.linkForm.invalid"
+            (click)="addLinks()"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,295 @@
+{
+  "user": [
+    {
+      "id": "neej@gmail.com",
+      "fname": "Neej",
+      "lname": "Patel",
+      "phone": "6355007944",
+      "gender": "male",
+      "department": "HR",
+      "date": "2003-04-20",
+      "doj": "2024-01-02",
+      "image": "https://th.bing.com/th/id/OIP.audMX4ZGbvT2_GJTx2c4GgHaHw?rs=1&pid=ImgDetMain",
+      "salary": 120000,
+      "password": "Neej@123",
+      "cPassword": "Neej@123",
+      "userRole": "admin",
+      "isactive": true,
+      "address": {
+        "street": "xyz",
+        "country": "India",
+        "city": "anand",
+        "region": "abc",
+        "postal": 125896
+      },
+      "skills": [
+        "Angular",
+        "Java"
+      ],
+      "experience": [
+        {
+          "company": "google",
+          "position": "Team Lead",
+          "totalExp": "1",
+          "start": "2022-09-15",
+          "end": "2024-02-01"
+        }
+      ]
+    },
+    {
+      "id": "tirth@gmail.com",
+      "fname": "Tirth",
+      "lname": "Patel",
+      "phone": "9652147894",
+      "gender": "male",
+      "department": "Data Analyst",
+      "date": "2024-02-12",
+      "doj": "2024-02-02",
+      "image": "https://th.bing.com/th/id/OIP.audMX4ZGbvT2_GJTx2c4GgHaHw?rs=1&pid=ImgDetMain",
+      "salary": 152500,
+      "password": "Tirth@123",
+      "cPassword": "Tirth@123",
+      "userRole": "employee",
+      "isactive": false,
+      "address": {
+        "street": "dsdfsg",
+        "country": "India",
+        "city": "sfgsfg",
+        "region": "sgfg",
+        "postal": 123456
+      },
+      "skills": [
+        "React",
+        "Java"
+      ],
+      "experience": [
+        {
+          "company": "Zomato",
+          "position": "Software Developer",
+          "totalExp": "0.5",
+          "start": "2024-02-09",
+          "end": "2024-02-17"
+        }
+      ]
+    },
+    {
+      "id": "anant@gmail.com",
+      "fname": "Anant",
+      "lname": "Patel",
+      "phone": "9876541232",
+      "gender": "male",
+      "department": "Fullstack Developer",
+      "date": "2003-03-08",
+      "doj": "2024-02-06",
+      "image": "https://th.bing.com/th/id/OIP.audMX4ZGbvT2_GJTx2c4GgHaHw?rs=1&pid=ImgDetMain",
+      "salary": 150000,
+      "password": "Anant@123",
+      "cPassword": "Anant@123",
+      "userRole": "employee",
+      "isactive": false,
+      "address": {
+        "street": "mehsana",
+        "country": "India",
+        "city": "visnagar",
+        "region": "visnagar",
+        "postal": 364320
+      },
+      "skills": [
+        "HTML",
+        "CSS"
+      ],
+      "experience": [
+        {
+          "company": "Microsoft",
+          "position": "Senior Developer",
+          "totalExp": "1",
+          "start": "2023-06-07",
+          "end": "2024-02-16"
+        }
+      ]
+    },
+    {
+      "id": "hiren@gmail.com",
+      "fname": "hiren",
+      "lname": "Rabari",
+      "phone": "7096294329",
+      "gender": "male",
+      "department": "Fullstack Developer",
+      "date": "2003-03-08",
+      "doj": "2024-02-06",
+      "image": "https://th.bing.com/th/id/OIP.audMX4ZGbvT2_GJTx2c4GgHaHw?rs=1&pid=ImgDetMain",
+      "salary": 150000,
+      "password": "Hiren@123",
+      "cPassword": "Hiren@123",
+      "userRole": "employee",
+      "isactive": false,
+      "address": {
+        "street": "Aambala",
+        "country": "India",
+        "city": "Bhavnagar",
+        "region": "Bhavnagar",
+        "postal": 364320
+      },
+      "skills": [
+        "HTML",
+        "JS"
+      ],
+      "experience": [
+        {
+          "company": "Microsoft",
+          "position": "Senior Developer",
+          "totalExp": "1",
+          "start": "2023-06-07",
+          "end": "2024-02-16"
+        }
+      ]
+    },
+    {
+      "id": "sita@gmail.com",
+      "fname": "sita",
+      "lname": "Rao",
+      "phone": "7894561239",
+      "gender": "female",
+      "department": "Data Analyst",
+      "date": "2003-03-08",
+      "doj": "2024-02-06",
+      "image": "https://th.bing.com/th/id/OIP.audMX4ZGbvT2_GJTx2c4GgHaHw?rs=1&pid=ImgDetMain",
+      "salary": 120000,
+      "password": "Sita@123",
+      "cPassword": "Sita@123",
+      "userRole": "employee",
+      "isactive": false,
+      "address": {
+        "street": "Mehsana",
+        "country": "India",
+        "city": "Visnagar",
+        "region": "Visnagar",
+        "postal": 364320
+      },
+      "skills": [
+        "HTML",
+        "CSS"
+      ],
+      "experience": [
+        {
+          "company": "Microsoft",
+          "position": "Senior Developer",
+          "totalExp": "1",
+          "start": "2023-06-07",
+          "end": "2024-02-16"
+        }
+      ]
+    },
+    {
+      "id": "kaushik@gmail.com",
+      "fname": "kaushik",
+      "lname": "kataria",
+      "phone": "8569321479",
+      "gender": "male",
+      "department": "HR",
+      "date": "2019-03-02",
+      "doj": "2024-02-02",
+      "image": "C:\\fakepath\\EMSLogo.png",
+      "salary": 150000,
+      "password": "Kaushik@123",
+      "cPassword": "Kaushik@123",
+      "userRole": "employee",
+      "isactive": false,
+      "address": {
+        "street": "surat",
+        "country": "India",
+        "city": "surat",
+        "region": "surat",
+        "postal": 874563
+      },
+      "skills": [
+        "Python",
+        "PostgreSQL"
+      ],
+      "experience": [
+        {
+          "company": "Adobe",
+          "position": "Software Developer",
+          "totalExp": "0.5",
+          "start": "2022-06-17",
+          "end": "2023-08-25"
+        }
+      ]
+    },
+    {
+      "id": "kandarp@gmail.com",
+      "fname": "Kandarp",
+      "lname": "Shah",
+      "phone": "7985963259",
+      "salary": 185000,
+      "gender": "male",
+      "department": "Fullstack Developer",
+      "date": "2002-03-09",
+      "doj": "2024-02-08",
+      "image": "C:\\fakepath\\EMSLogo.png",
+      "password": "Kandarp@123",
+      "cPassword": "Kandarp@123",
+      "userRole": "employee",
+      "isactive": false,
+      "address": {
+        "street": "NIT",
+        "country": "India",
+        "city": "Surat",
+        "region": "NIT",
+        "postal": 456123
+      },
+      "skills": [
+        "Mongodb",
+        "Django",
+        "SQL"
+      ],
+      "experience": [
+        {
+          "company": "Tatvsoft",
+          "position": "Senior Developer",
+          "totalExp": "1",
+          "start": "2023-01-13",
+          "end": "2024-02-02"
+        }
+      ]
+    }
+  ],
+  "Department": [
+    {
+      "id": "45f5",
+      "departmentName": "Backend Developer"
+    },
+    {
+      "id": "018d",
+      "departmentName": "Fullstack Developer"
+    },
+    {
+      "id": "1c1a",
+      "departmentName": "Data Analyst"
+    },
+    {
+      "id": "cbb0",
+      "departmentName": "Marketing"
+    },
+    {
+      "id": "66b4",
+      "departmentName": "HR"
+    },
+    {
+      "id": "32f1",
+      "departmentName": "Finance"
+    },
+    {
+      "id": "ef00",
+      "departmentName": "IT"
+    }
+  ],
+  "social": [
+    {
+      "id": "tirth@gmail.com",
+      "github": "https://fontawesome.com/icons/linkedin?f=brands&s=solid",
+      "email": "gfds",
+      "linkedin": "dgd"
+    }
+  ]
+}

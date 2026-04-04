@@ -1,0 +1,134 @@
+<div id="profile" #profile>
+  <div class="fs-3" mat-dialog-title>
+    <div class="container pt-0">
+      <div class="row">
+        <div class="col-1 logo-container">
+          <img [src]="getImageUrl()" alt="User" class="me-3 userImage" />
+        </div>
+        <div class="col">
+          {{ userData.data.fname + " " + userData.data.lname }}
+        </div>
+
+        <div class="col exclude">
+          <i
+            class="fa-solid fa-download d-flex justify-content-end align-items-center"
+            (click)="downloadProfile()"
+          ></i>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div mat-dialog-content>
+    <div class="container">
+      <div class="row">
+        <div class="col me-3 mt-1">
+          <div class="row mb-3">
+            <div class="col">
+              <div class="row fs-5 fw-medium" style="color: black">Profile</div>
+              <hr />
+              <div class="row">Email : {{ userData.data.email }}</div>
+              <div class="row">Phone : {{ userData.data.phone }}</div>
+              <div class="row">Gender : {{ userData.data.gender }}</div>
+              <div class="row">Department : {{ userData.data.department }}</div>
+              <div class="row">
+                Birth Date :
+                {{ userData.data.dateOfBirth | date : "dd-MM-yyyy" }}
+              </div>
+              <div class="row">
+                Joining Date :
+                {{ userData.data.dateOfJoining | date : "dd-MM-yyyy" }}
+              </div>
+              <div class="row">
+                Salary : {{ userData.data.salary | currency : "INR" }}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="row fs-5 fw-medium" style="color: black">Address</div>
+              <hr />
+              <div class="row">Street : {{ userData.data.address.street }}</div>
+              <div class="row">Region : {{ userData.data.address.region }}</div>
+              <div class="row">city : {{ userData.data.address.city }}</div>
+              <div class="row">
+                Postal : {{ userData.data.address.postalcode }}
+              </div>
+              <div class="row">
+                Country : {{ userData.data.address.country }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col mt-1">
+          <div class="row mb-3">
+            <div class="col">
+              <div class="row fs-5 fw-medium" style="color: black">Skills</div>
+              <hr />
+              <ul>
+                @for (item of userData.data.skills; track $index) {
+                <li>{{ item }}</li>
+                }
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="row fs-5 fw-medium" style="color: black">
+                Experience
+              </div>
+              <hr />
+              <div class="row d-flex">
+                @if (userData.data.experience) { @for (item of
+                userData.data.experience; track $index) {
+                <!-- <div class="col"> -->
+                <div class="row">Company : {{ item.company }}</div>
+                <div class="row">Position : {{ item.position }}</div>
+                <div class="row">Time : {{ item.totalExp }} Year</div>
+                <div class="row">
+                  Start : {{ item.start | date : "dd-MM-yyyy" }}
+                </div>
+                <div class="row">
+                  End : {{ item.endDate | date : "dd-MM-yyyy" }}
+                </div>
+                @if (userData.data.experience.length>1) {
+                <hr />
+                } } } @else {
+                <h3>No Experience</h3>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col d-flex justify-content-center">
+          @if (this.linkData!=null) {
+          <a [href]="this.linkData.github" target="_blank"
+            ><i class="fa-brands fa-github fs-3 me-3 text-dark"></i
+          ></a>
+          <a
+            matTooltip="Send mail"
+            matTooltipPosition="below"
+            (click)="sendEmail()"
+          >
+            <i class="fa-solid fa-envelope fs-3 me-3 text-dark"></i
+          ></a>
+          <a [href]="this.linkData.linkedin" target="_blank">
+            <i class="fa-brands fa-linkedin fs-3 text-dark"></i></a
+          >}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button
+      mat-raised-button
+      mat-dialog-close
+      color="warn"
+      class="m-auto exclude"
+    >
+      Close
+    </button>
+  </div>
+</div>

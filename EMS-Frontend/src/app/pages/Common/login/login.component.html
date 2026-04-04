@@ -1,0 +1,112 @@
+<div class="container d-flex justify-content-center align-items-center mt-md-5">
+  <div class="row box-area mt-md-5">
+    <div
+      class="col-lg-5 d-flex justify-content-center align-items-center flex-column mt-md-3"
+    >
+      <div class="featured-image d-none d-sm-block d-mb-lg-3">
+        <img src="../assets/logo.png" class="img-fluid" style="width: 250px" />
+      </div>
+      <p
+        class="fs-2 text-center mt-2"
+        style="font-family: 'Courier New', Courier, monospace; font-weight: 600"
+      >
+        Stay Connected
+      </p>
+      <small
+        class="text-wrap text-center"
+        style="font-family: 'Courier New', Courier, monospace"
+        >Login to Employee Management System</small
+      >
+    </div>
+
+    <div class="col-lg-7 right-box">
+      <div class="row align-items-center border rounded-4">
+        <div class="header-text mb-sm-4 text-center mt-md-1">
+          <h2>Hello,Again</h2>
+          <p>We are happy to have you back.</p>
+        </div>
+        <form
+          [formGroup]="loginform"
+          novalidate
+          class="mb-md-3"
+          (ngSubmit)="submitLoginForm()"
+        >
+          <div class="row">
+            <div class="col mb-2">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control form-md-control-md bg-light fs-6"
+                placeholder="Email"
+                name="email"
+                id="email"
+                formControlName="email"
+                [ngClass]="{'is-valid':(id.touched || id.dirty)&&!(id.errors?.['required'] || (id.errors?.['pattern'])),'is-invalid':((id.touched||id.dirty) && (id.errors?.['required'] || (id.errors?.['pattern'])))}"
+              />
+              @if ((id.touched || id.dirty) && id.errors?.['required']) {
+              <div class="invalid-feedback ps-1">*id is Required.</div>
+              } @if (id.errors?.['pattern']&&(id.touched || id.dirty)) {
+              <div class="invalid-feedback mb-1 ps-1">*Email is Invalid.</div>
+              }
+            </div>
+          </div>
+          <div class="row">
+            <div class="col mb-1">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control form-md-control-md bg-light fs-6"
+                placeholder="Password"
+                name="password"
+                id="password"
+                formControlName="password"
+                [ngClass]="{'is-valid':(password.touched || password.dirty)&&!(password.errors?.['required'] || (password.errors?.['pattern'])),'is-invalid':((password.touched||password.dirty) && (password.errors?.['required'] || (password.errors?.['pattern'])))}"
+              />
+              @if ((password.touched || password.dirty) &&
+              password.errors?.['required']) {
+              <div class="invalid-feedback ps-1">*Password is Required.</div>
+              } @if (password.errors?.['pattern']&&(password.touched ||
+              password.dirty)) {
+              <div class="invalid-feedback mb-1 ps-1">
+                *Password must contain at least 8 characters,1 Uppercase,1
+                Lowercase,1 number,1 special characters.
+              </div>
+              }
+            </div>
+          </div>
+          <div class="input-group d-flex justify-content-end">
+            <div class="forgot mt-2">
+              <small
+                ><a (click)="forgotPassword()" class="forgotLink"
+                  >Forgot Password?</a
+                ></small
+              >
+            </div>
+          </div>
+          <div class="row mt-1">
+            <div class="col text-center">
+              <button
+                type="submit"
+                [disabled]="loginform.invalid"
+                class="btn btn-outline-primary"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="row mb-md-2">
+          <small
+            >Don't have account?
+            <a
+              routerLink="/signup"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Sign Up</a
+            ></small
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

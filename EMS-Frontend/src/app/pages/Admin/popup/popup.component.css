@@ -1,0 +1,32 @@
+hr {
+  display: block;
+  padding: 0;
+  margin-bottom: 1px;
+  margin-top: 5px;
+}
+i {
+  cursor: pointer;
+}
+a:hover {
+  color: #00fffb;
+  text-shadow: 0 0 15px #00fffb, 0 0 40px #0081bc;
+  font-weight: 450;
+}
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+.userImage {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  transition: transform 0.5s;
+  object-fit: cover;
+}
+.userImage:hover {
+  transform: scale(2.2);
+  box-shadow: 0 0 10px #00fffb, 0 0 20px #0081bc;
+}
+#profile {
+  background-color: #ecf0f3;
+}

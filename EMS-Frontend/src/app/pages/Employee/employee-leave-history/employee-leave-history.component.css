@@ -1,0 +1,23 @@
+.mat-column-name,
+.mat-column-date,
+.mat-column-doj {
+  text-wrap: nowrap;
+}
+mat-card,
+mat-card-footer,
+mat-paginator {
+  overflow: scroll;
+  background-color: #ecf0f3;
+}
+table {
+  background-color: #ecf0f3;
+}
+.mat-column-action {
+  text-align: left !important;
+}
+.table-row {
+  transition: transform 0.2s ease;
+}
+.table-row:hover {
+  transform: scale(1.005);
+}

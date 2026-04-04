@@ -1,0 +1,33 @@
+@import "../node_modules/alertifyjs/build/css/alertify.min.css";
+@import "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css";
+@import "../node_modules/alertifyjs/build/css/themes/default.min.css";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #ecf0f3;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 0.1rem;
+  background-color: #ecf0f3;
+  /* #111828; */
+}
+::-webkit-scrollbar-track {
+  background: #ecf0f3;
+}
+::-webkit-scrollbar-thumb {
+  background: #111828;
+}

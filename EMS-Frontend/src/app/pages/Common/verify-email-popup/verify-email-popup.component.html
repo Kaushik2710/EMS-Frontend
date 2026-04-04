@@ -1,0 +1,60 @@
+<div class="changebac">
+  <div mat-dialog-title class="fs-4 text-center">Verify Email</div>
+  <div mat-dialog-content>
+    <div class="container">
+      <div class="row">
+        <form
+          [formGroup]="verifyEmailForm"
+          (ngSubmit)="submitVerifyEmailForm()"
+          enctype="multipart/form-data"
+        >
+          <div class="row ms-5">
+            <label class="form-label fs-5 fw-medium mt-2">Email</label>
+            <div class="col-8">
+              <input
+                type="email"
+                class="form-control form-md-control-md bg-light fs-6"
+                placeholder="Email"
+                name="email"
+                id="email"
+                formControlName="email"
+                [ngClass]="{'is-valid':(id.touched || id.dirty)&&!(id.errors?.['required'] || (id.errors?.['pattern'])),'is-invalid':((id.touched||id.dirty) && (id.errors?.['required'] || (id.errors?.['pattern'])))}"
+              />
+              @if ((id.touched || id.dirty) && id.errors?.['required']) {
+              <div class="invalid-feedback ps-1">*id is Required.</div>
+              } @if (id.errors?.['pattern']&&(id.touched || id.dirty)) {
+              <div class="invalid-feedback mb-1 ps-1">*Email is Invalid.</div>
+              }
+            </div>
+            <div class="col-4 mt-1">
+              <button
+                type="submit"
+                mat-raised-button
+                color="primary"
+                [disabled]="!this.verifyEmailForm.valid"
+              >
+                Send OTP
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      @if (isLoading) {
+      <div class="row">
+        <div class="loader m-auto mt-3"></div>
+      </div>
+      }
+    </div>
+
+    <div mat-dialog-actions>
+      <button
+        mat-raised-button
+        mat-dialog-close
+        color="warn"
+        class="m-auto mt-3"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>

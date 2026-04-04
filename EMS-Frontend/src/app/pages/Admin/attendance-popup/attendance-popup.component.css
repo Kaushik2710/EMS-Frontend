@@ -1,0 +1,10 @@
+.profile {
+  background-color: #ecf0f3;
+}
+select,
+option {
+  background-color: #ecf0f3;
+}
+select {
+  border: 2px solid #111828;
+}

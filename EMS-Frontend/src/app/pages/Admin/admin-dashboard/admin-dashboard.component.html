@@ -1,0 +1,143 @@
+<div class="container mt-3">
+  <div class="row">
+    <h2 class="fw-bold fs-3 text-muted">Dashboard</h2>
+    <hr />
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card text-center card-trans1">
+        <div class="card-header card1 text-white pt-4 pb-4">
+          <div class="row align-items-center">
+            <div class="col">
+              <i class="fa fa-layer-group fa-4x opacity-75"></i>
+            </div>
+            <div class="col">
+              <h1 class="fs-2">{{ totalDept }}</h1>
+              <h6 class="fs-5">Departments</h6>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer pb-0">
+          <h3>
+            <a
+              routerLink="/admin/manage-department"
+              class="card-text-1 text-decoration-none fw-medium"
+              >View Details <i class="fa fa-arrow-alt-circle-right"></i
+            ></a>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center card-trans2">
+        <div class="card-header card2 text-white pt-4 pb-4">
+          <div class="row align-items-center">
+            <div class="col">
+              <i class="fa fa-users fa-4x opacity-75"></i>
+            </div>
+            <div class="col">
+              <h1 class="fs-2">{{ totalStaff }}</h1>
+              <h6 class="fs-5">Staff</h6>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer pb-0">
+          <h3>
+            <a
+              routerLink="/admin/manage-staff"
+              class="card-text-2 text-decoration-none fw-medium"
+              >View Details <i class="fa fa-arrow-alt-circle-right"></i
+            ></a>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center card-trans3">
+        <div class="card-header card3 text-white pt-4 pb-4">
+          <div class="row align-items-center">
+            <div class="col">
+              <i class="fa fa-arrow-right-from-bracket fa-4x opacity-75"></i>
+            </div>
+            <div class="col-7">
+              <h1 class="fs-2">{{ leaveRequest }}</h1>
+              <h6 class="fs-5">Leave Request</h6>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer pb-0">
+          <h3>
+            <a
+              routerLink="/admin/manage-leave"
+              class="card-text-3 text-decoration-none fw-medium"
+              >View Details <i class="fa fa-arrow-alt-circle-right"></i
+            ></a>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card text-center card-trans4">
+        <div class="card-header card4 text-white pt-4 pb-4">
+          <div class="row align-items-center">
+            <div class="col">
+              <i class="fa fa-indian-rupee-sign fa-4x opacity-75"></i>
+            </div>
+            <div class="col">
+              <h1 class="fs-2">{{ totalSalary | currency : "INR" }}</h1>
+              <h6 class="fs-5">Salary</h6>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer pb-0">
+          <h3>
+            <a
+              routerLink="/admin/manage-salary"
+              class="card-text-4 text-decoration-none fw-medium"
+              >View Details <i class="fa fa-arrow-alt-circle-right"></i
+            ></a>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="mt-2 col-3">
+      <div class="row">
+        <h2>Staff</h2>
+      </div>
+      <div class="row d-flex justify-content-end">
+        <select
+          (change)="onChartTypeChange($event)"
+          class="form-select form-select-sm w-auto mb-2 selectbg"
+        >
+          <option value="pie">Pie Chart</option>
+          <option value="bar">Bar Chart</option>
+          <option value="doughnut">Doughnut Chart</option>
+          <option value="line">Line Chart</option>
+          <option value="polar">Polar Chart</option>
+        </select>
+      </div>
+      <canvas id="myChart"></canvas>
+    </div>
+    <div class="col-3"></div>
+    <div class="mt-2 col-3">
+      <div class="row">
+        <h2>Salary</h2>
+      </div>
+      <div class="row d-flex justify-content-end">
+        <select
+          (change)="onSalaryChartTypeChange($event)"
+          class="form-select form-select-sm w-auto mb-2 selectbg"
+        >
+          <option value="pie">Pie Chart</option>
+          <option value="bar">Bar Chart</option>
+          <option value="doughnut">Doughnut Chart</option>
+          <option value="line">Line Chart</option>
+          <option value="polar">Polar Chart</option>
+        </select>
+      </div>
+      <canvas id="mySalaryChart"></canvas>
+    </div>
+  </div>
+</div>

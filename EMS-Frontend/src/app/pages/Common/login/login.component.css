@@ -1,0 +1,29 @@
+.box-area {
+  background-color: #ecf0f3;
+  box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  z-index: 0;
+}
+button:hover {
+  box-shadow: 0 0 5px #61a616, 0 0 15px #0081bc;
+}
+.right-box {
+  padding: 40px 30px 40px 40px;
+}
+::placeholder {
+  font-size: 16px;
+}
+.rounded-4 {
+  border-radius: 20px;
+}
+.rounded-5 {
+  border-radius: 30px;
+}
+.forgotLink {
+  color: blue;
+  text-decoration: underline;
+}
+.forgotLink:hover {
+  cursor: pointer;
+}

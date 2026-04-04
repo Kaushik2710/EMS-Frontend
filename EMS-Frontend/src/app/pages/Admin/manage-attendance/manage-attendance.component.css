@@ -1,0 +1,22 @@
+mat-card,
+mat-card-footer,
+mat-paginator {
+  background-color: #ecf0f3;
+}
+table {
+  background-color: #ecf0f3;
+}
+.mat-column-action {
+  margin-left: 12px !important;
+}
+img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.5s;
+  object-fit: cover;
+}
+img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 5px #00fffb, 0 0 2px #0081bc;
+}

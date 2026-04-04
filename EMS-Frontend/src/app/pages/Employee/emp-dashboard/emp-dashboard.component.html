@@ -1,0 +1,156 @@
+<div class="container mt-3">
+  <div class="row">
+    <h2 class="fw-bold fs-3 text-muted">Dashboard</h2>
+    <hr />
+  </div>
+  <div class="row">
+    <div class="card-profile col-10">
+      <div class="col-3 ms-3">
+        <div class="user-image-container">
+          <div class="border-animation">
+            <img
+              [src]="getImageUrl(userData)"
+              alt="User"
+              class="me-3 user-image"
+              style="border-radius: 50%"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <h2 class="text-muted fw-800">
+            Name : {{ userData.fname + " " + userData.lname }}
+          </h2>
+        </div>
+        <div class="row">
+          <h2 class="text-muted fw-800">
+            Department : {{ userData.department }}
+          </h2>
+        </div>
+        <div class="row">
+          <h2 class="text-muted fw-800">Phone : {{ userData.phone }}</h2>
+        </div>
+        <div class="row">
+          <h2 class="text-muted fw-800">Email : {{ userData.email }}</h2>
+        </div>
+      </div>
+      <div class="col">
+        <div class="row">
+          <h2 class="text-muted fw-800">
+            BirthDate : {{ userData.dateOfBirth | date : "dd-MM-yyyy" }}
+          </h2>
+        </div>
+        <div class="row">
+          <h2 class="text-muted fw-800">
+            Joined On : {{ userData.dateOfJoining | date : "dd-MM-yyyy" }}
+          </h2>
+        </div>
+        <div class="row">
+          <h2 class="text-muted fw-800">
+            Salary : {{ userData.salary | currency : "INR" }}
+          </h2>
+        </div>
+        <div class="row">
+          <h2 class="text-muted fw-800">City : {{ userData.address.city }}</h2>
+        </div>
+      </div>
+    </div>
+    @if(this.linkData!=null) {
+    <div
+      class="col-1 social-card-profile ms-2 d-flex flex-column align-items-center justify-content-around"
+    >
+      <div class="row text-center">
+        <a [href]="this.linkData.github" target="_blank"
+          ><i class="fa-brands fa-github fs-3 me-3 text-dark icon-hover"></i
+        ></a>
+      </div>
+      <div class="row text-center">
+        <a [href]="this.linkData.linkedin" target="_blank"
+          ><i class="fa-brands fa-linkedin fs-3 me-3 text-dark icon-hover"></i
+        ></a>
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md-3 ms-2">
+      <div class="card text-center card-trans1">
+        <div class="card-header card1 text-white pt-4 pb-4">
+          <div class="row align-items-center">
+            <div class="col">
+              <i class="fa fa-arrow-right-from-bracket fa-4x opacity-75"></i>
+            </div>
+            <div class="col-7">
+              <h1 class="fs-2">{{ this.leaveData }}</h1>
+              <h6 class="fs-5">Leave History</h6>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer pb-0">
+          <h3>
+            <a
+              routerLink="/employee/leave-history"
+              class="card-text-1 text-decoration-none fw-medium"
+              >View Details <i class="fa fa-arrow-alt-circle-right"></i
+            ></a>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 ms-5">
+      <div class="card text-center card-trans2">
+        <div class="card-header card2 text-white pt-4 pb-4">
+          <div class="row align-items-center">
+            <div class="col">
+              <i class="fa fa-indian-rupee-sign fa-4x opacity-75"></i>
+            </div>
+            <div class="col">
+              <h1 class="fs-2">
+                {{ this.userData.salary | currency : "INR" }}
+              </h1>
+              <h6 class="fs-5">Salary</h6>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer pb-0">
+          <h3>
+            <a
+              routerLink="/employee/view-salary"
+              class="card-text-2 text-decoration-none fw-medium"
+              >View Details <i class="fa fa-arrow-alt-circle-right"></i
+            ></a>
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="col ms-5">
+      <div class="row">
+        <div class="col-8"><canvas id="canvas"></canvas></div>
+        <div class="col-3">
+          <select
+            class="form-control"
+            id="month"
+            name="month"
+            [(ngModel)]="selectedMonth"
+            (change)="changeMonth()"
+          >
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

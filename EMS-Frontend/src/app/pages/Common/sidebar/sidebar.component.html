@@ -1,0 +1,85 @@
+<div class="side-nav-content float-left">
+  <ul class="nav-list" [ngClass]="{ 'nav-list-open': sideNavStatus }">
+    @if(isAdmin){ @for (item of Adminlist; track $index) {
+    <li class="nav-list-item">
+      <i
+        class="{{ item.class }}"
+        (click)="onIconClick(item.routerLink)"
+        [matTooltip]="item.name"
+        matTooltipPosition="right"
+        [matTooltipDisabled]="sideNavStatus"
+      ></i>
+      <span
+        ><a
+          routerLink="{{ item.routerLink }}"
+          [routerLinkActive]="'active'"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >{{ item.name }}</a
+        ></span
+      >
+    </li>
+    }} @else if (isEmployee) { @for (item of employeeList; track $index) {
+    <li class="nav-list-item">
+      <i
+        class="{{ item.class }}"
+        (click)="onIconClick(item.routerLink)"
+        [matTooltip]="item.name"
+        matTooltipPosition="right"
+        [matTooltipDisabled]="sideNavStatus"
+      ></i>
+      <span
+        ><a
+          routerLink="{{ item.routerLink }}"
+          [routerLinkActive]="'active'"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >{{ item.name }}</a
+        ></span
+      >
+    </li>
+    } } @else { @for (item of beforeLoginList; track $index) {
+    <li class="nav-list-item">
+      <i
+        class="{{ item.class }}"
+        (click)="onIconClick(item.routerLink)"
+        [matTooltip]="item.name"
+        matTooltipPosition="right"
+        [matTooltipDisabled]="sideNavStatus"
+      ></i>
+      <span
+        ><a
+          routerLink="{{ item.routerLink }}"
+          [routerLinkActive]="'active'"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >{{ item.name }}</a
+        ></span
+      >
+    </li>
+    } }
+  </ul>
+  @if(isAdmin||isEmployee){
+  <div class="position-absolute bottom-0 left-0 w-100">
+    <div class="position-relative">
+      <div class="profile-details d-flex align-items-center">
+        <img
+          src="../assets/logo.png"
+          alt="null"
+          width="40px"
+          height="40px"
+          class="ms-1"
+        />
+        <div class="name_job ms-3">
+          <div class="name text-wrap">{{ name | shortname | titlecase }}</div>
+          <div class="job text-wrap">{{ role | titlecase }}</div>
+        </div>
+      </div>
+      <i
+        class="fa-solid fa-circle-left"
+        id="logo"
+        (click)="logout()"
+        matTooltip="Logout"
+        matTooltipPosition="right"
+      ></i>
+    </div>
+  </div>
+  }
+</div>

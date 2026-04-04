@@ -1,0 +1,18 @@
+mat-card {
+  width: 85%;
+  box-shadow: none !important;
+}
+mat-card,
+mat-card-footer,
+mat-paginator {
+  background-color: #ecf0f3;
+}
+table {
+  background-color: #ecf0f3;
+}
+.table-row {
+  transition: transform 0.2s ease;
+}
+.table-row:hover {
+  transform: scale(1.005);
+}

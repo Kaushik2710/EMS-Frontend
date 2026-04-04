@@ -1,0 +1,23 @@
+table,
+th,
+tr,
+td {
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+  color: black;
+}
+tr {
+  background-color: aliceblue;
+}
+img {
+  border-radius: 5px;
+}
+.box {
+  background-color: rgb(248, 245, 245);
+  border-radius: 5px;
+  font-size: 15px;
+}
+.btn-color {
+  background-color: rgb(238, 241, 243);
+}

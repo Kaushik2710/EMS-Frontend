@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand navbar-dark px-sm-2">
+  <div class="side-nav-button p-2 me-sm-3 text-light" (click)="sideNavToggle()">
+    <i class="fa-solid fa-bars" style="font-size: 1.5em"></i>
+  </div>
+  <img
+    src="../assets/EMSLogo.png"
+    alt="LOGO"
+    class="rounded float-start"
+    width="45em"
+    height="45em"
+  />
+  <a
+    [routerLink]="['/login']"
+    class="navbar-brand d-none d-sm-block px-sm-2 ms-2"
+    ><span>EMS</span></a
+  >
+  @if(isAdmin||isEmployee){
+  <button
+    class="btn btn-outline-light ms-auto me-2 fw-bold border border-1"
+    (click)="logout()"
+  >
+    Logout
+  </button>
+  }
+</nav>
