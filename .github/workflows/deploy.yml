@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Angular app
         working-directory: EMS-Frontend
-        run: npx ng build --base-href=/EMS/
+        run: npx ng build --base-href=/EMS-Frontend/
 
       - name: List build output (debug)
         working-directory: EMS-Frontend
