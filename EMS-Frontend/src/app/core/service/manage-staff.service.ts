@@ -1,80 +1,82 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class ManageStaffService {
   constructor(private http: HttpClient) {}
-  apiUser: string = 'http://localhost:3000/user';
-  apiDept: string = 'http://localhost:3000/Department';
-  apiLink: string = 'http://localhost:3000/social';
+  apiUser: string = environment.apiUrl + '/user';
+  apiDept: string = environment.apiUrl + '/Department';
+  apiLink: string = environment.apiUrl + '/social';
   getAllUsers() {
-    return this.http.get('http://localhost:8080/ems/getAllUser');
+    return this.http.get(environment.apiUrl + '/getAllUser');
   }
   getUserById(id: any) {
-    return this.http.get('http://localhost:8080/ems/getUserById' + '/' + id);
+    return this.http.get(environment.apiUrl + '/getUserById' + '/' + id);
   }
   deleteUser(email: string) {
     return this.http.delete(
-      'http://localhost:8080/ems/deleteUser' + '/' + email
+      environment.apiUrl + '/deleteUser' + '/' + email
     );
   }
   editUser(email: string, formData: any) {
     return this.http.patch(
-      'http://localhost:8080/ems/updateUser' + '/' + email,
+      environment.apiUrl + '/updateUser' + '/' + email,
       formData
     );
   }
   getUserSalaryData() {
-    return this.http.get('http://localhost:8080/ems/getEmployeeSalaryData');
+    return this.http.get(environment.apiUrl + '/getEmployeeSalaryData');
   }
   updateProfile(email: string, formData: any) {
     return this.http.patch(
-      'http://localhost:8080/ems/updateProfile' + '/' + email,
+      environment.apiUrl + '/updateProfile' + '/' + email,
       formData
     );
   }
   addDepartment(dept: any) {
-    return this.http.post('http://localhost:8080/ems/addDepartment', dept);
+    return this.http.post(environment.apiUrl + '/addDepartment', dept);
   }
   getAllDepartment() {
-    return this.http.get('http://localhost:8080/ems/getAllDepartment');
+    return this.http.get(environment.apiUrl + '/getAllDepartment');
   }
   deleteDepartment(id: any) {
     return this.http.delete(
-      'http://localhost:8080/ems/deleteDepartment' + '/' + id
+      environment.apiUrl + '/deleteDepartment' + '/' + id
     );
   }
   sendEmail(formData: any) {
-    return this.http.post('http://localhost:8080/ems/sendEmail', formData);
+    return this.http.post(environment.apiUrl + '/sendEmail', formData);
   }
   editDepartment(id: string, data: any) {
     return this.http.patch(
-      'http://localhost:8080/ems/editDepartment' + '/' + id,
+      environment.apiUrl + '/editDepartment' + '/' + id,
       data
     );
   }
   addSalary(id: string, formData: any) {
     return this.http.patch(
-      'http://localhost:8080/ems/addSalary' + '/' + id,
+      environment.apiUrl + '/addSalary' + '/' + id,
       formData
     );
   }
   addLinks(data: any) {
-    return this.http.post('http://localhost:8080/ems/addLinks', data);
+    return this.http.post(environment.apiUrl + '/addLinks', data);
   }
   getLinks(email: any) {
-    return this.http.get('http://localhost:8080/ems/getLinks' + '/' + email);
+    return this.http.get(environment.apiUrl + '/getLinks' + '/' + email);
   }
   paySalary(id: any, amount: any) {
     return this.http.get(
-      'http://localhost:8080/ems/paySalary' + '/' + id + '/' + amount
+      environment.apiUrl + '/paySalary' + '/' + id + '/' + amount
     );
   }
   getEmployeeSalaryData(email: any) {
     return this.http.get(
-      'http://localhost:8080/ems/getEmployeeSalaryData' + '/' + email
+      environment.apiUrl + '/getEmployeeSalaryData' + '/' + email
     );
   }
 }

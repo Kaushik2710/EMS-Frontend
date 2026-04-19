@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -9,41 +11,41 @@ export class LeaveService {
   constructor(private http: HttpClient) {}
   submitLeaveRequest(leaveRequest: any) {
     return this.http.post<any>(
-      'http://localhost:8080/ems/leaveRequest',
+      environment.apiUrl + '/leaveRequest',
       leaveRequest
     );
   }
 
   getPendingLeaveRequests() {
-    return this.http.get<any[]>('http://localhost:8080/ems/pendingLeaves');
+    return this.http.get<any[]>(environment.apiUrl + '/pendingLeaves');
   }
 
   approveLeaveRequest(requestId: any) {
     return this.http.post<any>(
-      'http://localhost:8080/ems/approveLeave' + '/' + requestId,
+      environment.apiUrl + '/approveLeave' + '/' + requestId,
       {}
     );
   }
   rejectLeaveRequest(requestId: any) {
     return this.http.post<any>(
-      'http://localhost:8080/ems/rejectLeave' + '/' + requestId,
+      environment.apiUrl + '/rejectLeave' + '/' + requestId,
       {}
     );
   }
   getAllLeave() {
-    return this.http.get<any[]>('http://localhost:8080/ems/getAllLeave');
+    return this.http.get<any[]>(environment.apiUrl + '/getAllLeave');
   }
   noOfLeaveRequest() {
-    return this.http.get('http://localhost:8080/ems/noOfLeaveRequest');
+    return this.http.get(environment.apiUrl + '/noOfLeaveRequest');
   }
   findByRegisterEmail(email: any) {
     return this.http.get(
-      'http://localhost:8080/ems/getUserLeaveData' + '/' + email
+      environment.apiUrl + '/getUserLeaveData' + '/' + email
     );
   }
   getLeaveRequestsOfEmployee(email: any) {
     return this.http.get(
-      'http://localhost:8080/ems/getLeaveRequestsOfEmployee' + '/' + email
+      environment.apiUrl + '/getLeaveRequestsOfEmployee' + '/' + email
     );
   }
 }

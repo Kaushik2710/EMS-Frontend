@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -18,41 +20,41 @@ export class AuthService {
       this.role.next(this.userData.department);
     });
   }
-  apiurl = 'http://localhost:3000/user';
+  apiurl = environment.apiUrl;
   userData: any;
   public isAdminSubject = new BehaviorSubject<boolean>(false);
   public isEmployeeSubject = new BehaviorSubject<boolean>(false);
   public name = new BehaviorSubject<String>('John');
   public role = new BehaviorSubject<String>('Developer');
   getAll() {
-    return this.http.get('http://localhost:8080/ems/getAllUser');
+    return this.http.get(environment.apiUrl + '/getAllUser');
   }
   // getByCode(code: any) {
   //   return this.http.get(this.apiurl + '/' + code);
   // }
   getUserByEmail(email: any) {
-    return this.http.get('http://localhost:8080/ems/getUser' + '/' + email);
+    return this.http.get(environment.apiUrl + '/getUser' + '/' + email);
   }
   ProceedRegister(formData: any) {
-    return this.http.post('http://localhost:8080/ems/registerUser', formData);
+    return this.http.post(environment.apiUrl + '/registerUser', formData);
   }
   loginEmployee(body: any) {
-    return this.http.post('http://localhost:8080/ems/loginEmployee', body);
+    return this.http.post(environment.apiUrl + '/loginEmployee', body);
   }
   isLoggedIn() {
     return localStorage.getItem('id') != null;
   }
   verifyEmail(email: any) {
-    return this.http.get('http://localhost:8080/ems/verifyEmail' + '/' + email);
+    return this.http.get(environment.apiUrl + '/verifyEmail' + '/' + email);
   }
   verifyOtp(otp: any, email: any) {
     return this.http.get(
-      'http://localhost:8080/ems/verifyOtp' + '/' + otp + '/' + email
+      environment.apiUrl + '/verifyOtp' + '/' + otp + '/' + email
     );
   }
   changePassword(formData: any, email: any) {
     return this.http.post(
-      'http://localhost:8080/ems/changePassword' + '/' + email,
+      environment.apiUrl + '/changePassword' + '/' + email,
       formData
     );
   }

@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -18,16 +20,16 @@ export class AttendanceService {
       present: present,
       halfDay: halfDay,
     };
-    return this.http.post('http://localhost:8080/ems/markAttendace', payload);
+    return this.http.post(environment.apiUrl + '/markAttendace', payload);
   }
   getAttendancesByDate(date: any) {
     return this.http.get(
-      'http://localhost:8080/ems/getAttendanceByDate' + '/' + date
+      environment.apiUrl + '/getAttendanceByDate' + '/' + date
     );
   }
   getAttendanceOfMonth(email: any, month: any, year: any) {
     return this.http.get(
-      'http://localhost:8080/ems/getAttendanceOfMonth' +
+      environment.apiUrl + '/getAttendanceOfMonth' +
         '/' +
         email +
         '/' +
