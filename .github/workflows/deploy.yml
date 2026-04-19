@@ -31,7 +31,10 @@ jobs:
 
       - name: List build output (debug)
         working-directory: EMS-Frontend
-        run: ls -la dist/ems/ || echo "dist/ems not found, listing dist:" && ls -la dist/ || echo "dist not found"
+        run: |
+          ls -la dist/ || echo "dist not found"
+          ls -R dist/ems/ || echo "dist/ems not found"
+          mkdir -p dist/ems/browser && touch dist/ems/browser/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
